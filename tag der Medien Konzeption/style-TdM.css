@@ -186,7 +186,7 @@
     .back {
         height: 4.5em;
         width: 2em;
-        margin-top: -4em;
+        margin-top: -9em;
         transition: 250ms;
         margin-right: 92%;
         z-index: 1000;
@@ -218,18 +218,18 @@
     
     .over:hover {
         -webkit-filter: grayscale(0);
-	filter: grayscale(0);
+	    filter: grayscale(0);
     }
 
     #p1 {
-    display: none;
-    width: 60%;
-    margin-left: 27em;
-    position: absolute;
-    border-width: 0.2em;
-    border-style: solid;
-    color: white;
-    margin-top:-42%;
+        display: none;
+        width: 60%;
+        margin-left: 27em;
+        position: absolute;
+        border-width: 0.2em;
+        border-style: solid;
+        color: white;
+        margin-top:-42%;
     }
 
     #p2{
@@ -264,6 +264,6 @@
         border-style: solid;
         color: white;
     }
-#back3 {
-margin-top: 25em;
-}
+    #back3 {
+        margin-top: 25em;
+    }
