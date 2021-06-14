@@ -34,9 +34,11 @@ window.addEventListener("load", function (): void {
 
     document.querySelector("#next")!.addEventListener("click", next)
     document.querySelector("#next2")!.addEventListener("click", next2)
+    document.querySelector("#next3")!.addEventListener("click", next3)
     document.querySelector("#back")!.addEventListener("click", back)
     document.querySelector("#back2")!.addEventListener("click", next)
-    document.querySelector("#back3")!.addEventListener("click", next2)
+    document.querySelector("#back3")!.addEventListener("click", next3)
+    document.querySelector("#back4")!.addEventListener("click", next2)
     document.querySelector("#letsgo")!.addEventListener("click", letsgo);
     document.querySelector("#click")!.addEventListener("click", submitandstart);
     document.querySelector("#like")!.addEventListener("click", counter);
@@ -80,6 +82,7 @@ window.addEventListener("load", function (): void {
 
     function back(): void {
         document.getElementById("TdM")!.style.display = "block";
+        document.getElementById("videosite")!.style.display = "none";
         document.getElementById("overview")!.style.display = "none";
         document.getElementById("start")!.style.display = "none";
         document.getElementById("formsite")!.style.display = "none";
@@ -91,7 +94,8 @@ window.addEventListener("load", function (): void {
     function next(): void {
         console.log("overview");
         document.getElementById("TdM")!.style.display = "none";
-        document.getElementById("overview")!.style.display = "block";
+        document.getElementById("videosite")!.style.display = "block";
+        document.getElementById("overview")!.style.display = "none";
         document.getElementById("start")!.style.display = "none";
         document.getElementById("formsite")!.style.display = "none";
         document.getElementById("swipesite")!.style.display = "none";
@@ -102,6 +106,19 @@ window.addEventListener("load", function (): void {
     function next2(): void {
         console.log("overview");
         document.getElementById("TdM")!.style.display = "none";
+        document.getElementById("videosite")!.style.display = "none";
+        document.getElementById("overview")!.style.display = "block";
+        document.getElementById("start")!.style.display = "none";
+        document.getElementById("formsite")!.style.display = "none";
+        document.getElementById("swipesite")!.style.display = "none";
+        document.getElementById("ende")!.style.display = "none";
+        index=1
+
+    }
+    function next3(): void {
+        console.log("overview");
+        document.getElementById("TdM")!.style.display = "none";
+        document.getElementById("videosite")!.style.display = "none";
         document.getElementById("overview")!.style.display = "none";
         document.getElementById("start")!.style.display = "block";
         document.getElementById("formsite")!.style.display = "none";
@@ -111,9 +128,11 @@ window.addEventListener("load", function (): void {
 
     }
 
+
     function letsgo(): void {
         console.log("letsgo");
         document.getElementById("TdM")!.style.display = "none";
+        document.getElementById("videosite")!.style.display = "none";
         document.getElementById("overview")!.style.display = "none";
         document.getElementById("start")!.style.display = "none";
         document.getElementById("formsite")!.style.display = "block";
@@ -124,6 +143,7 @@ window.addEventListener("load", function (): void {
     function ende(): void {
         console.log("letsgo");
         document.getElementById("TdM")!.style.display = "none";
+        document.getElementById("videosite")!.style.display = "none";
         document.getElementById("overview")!.style.display = "none";
         document.getElementById("start")!.style.display = "none";
         document.getElementById("formsite")!.style.display = "none";
@@ -137,6 +157,7 @@ window.addEventListener("load", function (): void {
             alert("type your name fr");
         } else {
             document.getElementById("start")!.style.display = "none";
+            document.getElementById("videosite")!.style.display = "none";
             document.getElementById("formsite")!.style.display = "none";
             document.getElementById("swipesite")!.style.display = "block";
             changevid();

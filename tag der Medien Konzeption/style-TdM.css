@@ -265,5 +265,11 @@
         color: white;
     }
     #back3 {
-        margin-top: 25em;
+        margin-top: 15em;
+    }
+    #videosite {
+        display: none;
+    }
+    #add {
+        margin-left: 20%;
     }
