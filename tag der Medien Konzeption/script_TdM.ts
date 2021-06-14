@@ -107,6 +107,7 @@ window.addEventListener("load", function (): void {
         document.getElementById("formsite")!.style.display = "none";
         document.getElementById("swipesite")!.style.display = "none";
         document.getElementById("ende")!.style.display = "none";
+        index=1
 
     }
 
