@@ -20,6 +20,7 @@ window.addEventListener("load", function () {
     document.querySelector("#next2").addEventListener("click", next2);
     document.querySelector("#back").addEventListener("click", back);
     document.querySelector("#back2").addEventListener("click", next);
+    document.querySelector("#back3").addEventListener("click", next2);
     document.querySelector("#letsgo").addEventListener("click", letsgo);
     document.querySelector("#click").addEventListener("click", submitandstart);
     document.querySelector("#like").addEventListener("click", counter);
