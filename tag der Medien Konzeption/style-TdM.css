@@ -127,10 +127,10 @@
     #vidsrc{
         margin-top:3em;
         position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
         
 
     }
@@ -202,18 +202,18 @@
         display: none;
     }
     .over{
-    width: 15%;
-    margin-top: 2em;
-    margin-bottom: auto;
-    margin-left: 13em;
-    border-color: white;
-    border-width: 0.1em;
-    border-style: solid;
-    transition: 0.5s;
-    position: relative;
-    -webkit-filter: grayscale(100%);
-	filter: grayscale(100%);
-	-webkit-transition: 0.5s;
+        width: 15%;
+        margin-top: 2em;
+        margin-bottom: auto;
+        margin-left: 13em;
+        border-color: white;
+        border-width: 0.1em;
+        border-style: solid;
+        transition: 0.5s;
+        position: relative;
+        -webkit-filter: grayscale(100%);
+	    filter: grayscale(100%);
+	    -webkit-transition: 0.5s;
     }
     
     .over:hover {
@@ -223,8 +223,8 @@
 
     #p1 {
         display: none;
-        width: 60%;
-        margin-left: 27em;
+        width: 55%;
+        margin-left: 28em;
         position: absolute;
         border-width: 0.2em;
         border-style: solid;
@@ -235,8 +235,8 @@
     #p2{
         display: none;
         position: absolute;   
-        width: 60%;
-        margin-left: 27em;
+        width: 55%;
+        margin-left: 28em;
         margin-top:-42%;
         border-width: 0.2em;
         border-style: solid;
@@ -245,8 +245,8 @@
     #p3{
         display: none;
         position: absolute;
-        width: 60%;
-        margin-left: 27em;
+        width: 55%;
+        margin-left: 28em;
         position: absolute;
         margin-top:-42%;
         border-width: 0.2em;
@@ -256,8 +256,8 @@
     #p4{
         display: none;
         position: absolute;
-        width: 60%;
-        margin-left: 27em;
+        width: 55%;
+        margin-left: 28em;
         position: absolute;
         margin-top:-42%;
         border-width: 0.2em;
