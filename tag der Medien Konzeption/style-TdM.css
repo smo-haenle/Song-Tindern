@@ -274,6 +274,10 @@
     #add {
         margin-left: 20%;
         margin-top: 2em;
+        border-style: solid;
+        border-radius: 1em;
+        border-color: #3fa9f5;
+        border-width: 0.5em;
     }
     #smartphone {
         display: none;
