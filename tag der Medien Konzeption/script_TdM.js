@@ -142,6 +142,7 @@ window.addEventListener("load", function () {
         document.getElementById("vidsrc").src = "assets/" + "vid" + index + ".mp4";
         //document.querySelector("video")!.play
         console.log("vid" + index + ".mp4");
+        document.getElementById("vidsrc").volume = 0.5;
     }
     function counter(_e) {
         index += 1;
