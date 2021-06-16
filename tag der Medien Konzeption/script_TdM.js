@@ -66,7 +66,7 @@ window.addEventListener("load", function () {
         document.getElementById("ende").style.display = "none";
     }
     function next() {
-        console.log("overview");
+        console.log("add");
         document.getElementById("TdM").style.display = "none";
         document.getElementById("videosite").style.display = "block";
         document.getElementById("overview").style.display = "none";
@@ -74,6 +74,7 @@ window.addEventListener("load", function () {
         document.getElementById("formsite").style.display = "none";
         document.getElementById("swipesite").style.display = "none";
         document.getElementById("ende").style.display = "none";
+        changeadd();
     }
     function next2() {
         console.log("overview");
@@ -85,6 +86,7 @@ window.addEventListener("load", function () {
         document.getElementById("swipesite").style.display = "none";
         document.getElementById("ende").style.display = "none";
         index = 1;
+        changeadd2();
     }
     function next3() {
         console.log("overview");
@@ -129,6 +131,12 @@ window.addEventListener("load", function () {
             changevid();
             console.log("submitandstart");
         }
+    }
+    function changeadd() {
+        document.getElementById("add").src = "assets/SoundBound.webm";
+    }
+    function changeadd2() {
+        document.getElementById("add").src = "";
     }
     function changevid() {
         document.getElementById("vidsrc").src = "assets/" + "vid" + index + ".mp4";

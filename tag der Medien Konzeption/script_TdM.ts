@@ -32,13 +32,13 @@ window.addEventListener("load", function (): void {
         }
     };
 
-    document.querySelector("#next")!.addEventListener("click", next)
-    document.querySelector("#next2")!.addEventListener("click", next2)
-    document.querySelector("#next3")!.addEventListener("click", next3)
-    document.querySelector("#back")!.addEventListener("click", back)
-    document.querySelector("#back2")!.addEventListener("click", next)
-    document.querySelector("#back3")!.addEventListener("click", next3)
-    document.querySelector("#back4")!.addEventListener("click", next2)
+    document.querySelector("#next")!.addEventListener("click", next);
+    document.querySelector("#next2")!.addEventListener("click", next2);
+    document.querySelector("#next3")!.addEventListener("click", next3);
+    document.querySelector("#back")!.addEventListener("click", back);
+    document.querySelector("#back2")!.addEventListener("click", next);
+    document.querySelector("#back3")!.addEventListener("click", next3);
+    document.querySelector("#back4")!.addEventListener("click", next2);
     document.querySelector("#letsgo")!.addEventListener("click", letsgo);
     document.querySelector("#click")!.addEventListener("click", submitandstart);
     document.querySelector("#like")!.addEventListener("click", counter);
@@ -92,7 +92,7 @@ window.addEventListener("load", function (): void {
     }
 
     function next(): void {
-        console.log("overview");
+        console.log("add");
         document.getElementById("TdM")!.style.display = "none";
         document.getElementById("videosite")!.style.display = "block";
         document.getElementById("overview")!.style.display = "none";
@@ -100,6 +100,7 @@ window.addEventListener("load", function (): void {
         document.getElementById("formsite")!.style.display = "none";
         document.getElementById("swipesite")!.style.display = "none";
         document.getElementById("ende")!.style.display = "none";
+        changeadd();
   
     }
 
@@ -112,7 +113,8 @@ window.addEventListener("load", function (): void {
         document.getElementById("formsite")!.style.display = "none";
         document.getElementById("swipesite")!.style.display = "none";
         document.getElementById("ende")!.style.display = "none";
-        index=1
+        index = 1;
+        changeadd2();
 
     }
     function next3(): void {
@@ -164,6 +166,12 @@ window.addEventListener("load", function (): void {
             console.log("submitandstart");
         }
     }
+    function changeadd(): void {
+        document.getElementById("add")!.src =  "assets/SoundBound.webm";
+    }
+    function changeadd2(): void {
+        document.getElementById("add")!.src =  "";
+    }
     
     function changevid(): void {
         document.getElementById("vidsrc")!.src = "assets/" + "vid" + index + ".mp4";
@@ -183,7 +191,7 @@ window.addEventListener("load", function (): void {
         }
     }
 
-
+   
 
 
 })

@@ -264,6 +264,7 @@
         border-style: solid;
         color: white;
     }
+ 
     #back3 {
         margin-top: 15em;
     }
@@ -272,6 +273,7 @@
     }
     #add {
         margin-left: 20%;
+        margin-top: 2em;
     }
     #smartphone {
         display: none;
