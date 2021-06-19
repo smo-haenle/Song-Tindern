@@ -4,7 +4,7 @@
     "description": "SOUND&BOUND",
     "main": "Final/server.js",
     "scripts": {
-    "start": "node server.js"
+    "start": "node Final/server.js"
     },
     "repository": {
     "type": "git",
