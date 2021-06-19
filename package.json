@@ -2,7 +2,7 @@
     "name": "tmp-app",
     "version": "1.0.0",
     "description": "SOUND&BOUND",
-    "main": "server.js",
+    "main": "Final/server.js",
     "scripts": {
     "start": "node server.js"
     },
