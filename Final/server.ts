@@ -87,17 +87,6 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
 
     _response.end();
 }
-//canvasdata= url query
-function storePicture(canvasData: any): void {
-    //erstellt neuen eintrag bzw überschreibt den alten mit gleichem namen
-    collection.update({ name: canvasData.name }, canvasData, { upsert: true });
-    //collection (mogodb) wird aktualisiert
-}
 
-async function loadPicture(name: any): Promise<any> {
-    return await collection.findOne({
-        name: name
 
-    });
-}
 

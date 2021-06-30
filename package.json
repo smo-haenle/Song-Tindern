@@ -2,9 +2,9 @@
     "name": "tmp-app",
     "version": "1.0.0",
     "description": "SOUND&BOUND",
-    "main": "Final/server.js",
+    "main": "/Final/server.js",
     "scripts": {
-    "start": "node Final/server.js"
+    "start": "node server.js"
     },
     "repository": {
     "type": "git",

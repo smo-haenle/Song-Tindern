@@ -52,15 +52,4 @@ async function handleRequest(_request, _response) {
     }
     _response.end();
 }
-//canvasdata= url query
-function storePicture(canvasData) {
-    //erstellt neuen eintrag bzw überschreibt den alten mit gleichem namen
-    collection.update({ name: canvasData.name }, canvasData, { upsert: true });
-    //collection (mogodb) wird aktualisiert
-}
-async function loadPicture(name) {
-    return await collection.findOne({
-        name: name
-    });
-}
 //# sourceMappingURL=server.js.map
