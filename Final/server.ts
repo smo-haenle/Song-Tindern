@@ -43,9 +43,7 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
 
         if (_request.url.startsWith("/save")) {
 
-            // save url query params
             let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            // storePicture(url.query);
             _response.write(JSON.stringify(url.query.info));
             console.log("reseved request");
             let myInfo: any = JSON.stringify(url.query.info);
@@ -72,11 +70,10 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
 
             collection.update({ name: userName }, myOb, { upsert: true });
 
-            // /load --> store Picture wird ausgeführt da es sich um den load query handelt
+
         } else if (_request.url.startsWith("/search")) {
 
-            // load picture from url name
-            let cursor: any = await loadPicture();
+            let cursor: any = collection.find();
             let myData: any [] = [];
 
 
@@ -86,22 +83,22 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
                 myData.push(doc);
             });
             let matches: string[] = [];
-
-            let myRef = await myData[myData.length - 1];
-            for (let i = 0; i < myData.length - 1; i++) {
+            console.log("myData", myData);
+            let myRef: any = myData[myData.length - 1];
+            for (let i: number = 0; i < myData.length - 1; i++) {
                 let counter: number = 0;
-                for (let key in await myData[i].songs) {
-                    if (await myData[i].songs[key] == myRef.songs[key]) {
+                for (let key in myData[i].songs) {
+                    if (myData[i].songs[key] == myRef.songs[key]) {
                         counter++;
                     }
                 }
                 if (counter > 3) {
-                    matches.push(await myData[i].name);
+                    matches.push(myData[i].name);
                 }
             }
 
-            console.log(matches);
-            // console.log("DATA #####################", picture);
+            console.log( "matches", matches);
+            
             _response.write(JSON.stringify(matches));
 
         }
@@ -110,8 +107,6 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
 
     _response.end();
 
-    async function loadPicture(): Promise<any> {
-        return await collection.find();
-    }
+   
 }
 

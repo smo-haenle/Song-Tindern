@@ -30,9 +30,7 @@ async function handleRequest(_request, _response) {
     if (_request.url) {
         // /save --> store Picture wird ausgeführt da es sich um den save query handelt
         if (_request.url.startsWith("/save")) {
-            // save url query params
             let url = Url.parse(_request.url, true);
-            // storePicture(url.query);
             _response.write(JSON.stringify(url.query.info));
             console.log("reseved request");
             let myInfo = JSON.stringify(url.query.info);
@@ -41,37 +39,32 @@ async function handleRequest(_request, _response) {
             let userName = myOb.name;
             console.log(myOb);
             collection.update({ name: userName }, myOb, { upsert: true });
-            // /load --> store Picture wird ausgeführt da es sich um den load query handelt
         }
         else if (_request.url.startsWith("/search")) {
-            // load picture from url name
-            let cursor = await loadPicture();
+            let cursor = collection.find();
             let myData = [];
             await cursor.forEach(function (doc) {
                 console.log(doc);
                 myData.push(doc);
             });
             let matches = [];
-            let myRef = await myData[myData.length - 1];
+            console.log("myData", myData);
+            let myRef = myData[myData.length - 1];
             for (let i = 0; i < myData.length - 1; i++) {
                 let counter = 0;
-                for (let key in await myData[i].songs) {
-                    if (await myData[i].songs[key] == myRef.songs[key]) {
+                for (let key in myData[i].songs) {
+                    if (myData[i].songs[key] == myRef.songs[key]) {
                         counter++;
                     }
                 }
                 if (counter > 3) {
-                    matches.push(await myData[i].name);
+                    matches.push(myData[i].name);
                 }
             }
-            console.log(matches);
-            // console.log("DATA #####################", picture);
+            console.log("matches", matches);
             _response.write(JSON.stringify(matches));
         }
     }
     _response.end();
-    async function loadPicture() {
-        return await collection.find();
-    }
 }
 //# sourceMappingURL=server.js.map

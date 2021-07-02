@@ -49,7 +49,7 @@ window.addEventListener("load", function (): void {
     }
 
     function submitandstart(): void {
-      
+
         if (test.value.length < 3) {
             alert("type your name fr");
         } else {
@@ -74,7 +74,7 @@ window.addEventListener("load", function (): void {
     }
 
 
-  
+
 
     function matches(): void {
         document.getElementById("start")!.style.display = "none";
@@ -136,17 +136,30 @@ window.addEventListener("load", function (): void {
         };
         let query: URLSearchParams = new URLSearchParams(<any>searchOb);
         let response: Response = await fetch(url + "/search?" + query.toString());
-        let responseStr: any = await response.json();
-        let responseJSON: Object = JSON.parse(await responseStr);
-        console.log(responseJSON + "-----");
-
+        let matches: string[] = await response.json();
+        let matchP: HTMLElement = document.createElement("li");
+        console.log("matches", matches);
         //return responseJSON;
+        
+       
+        for (let i: number = 0; i < matches.length; i++) {
+            let matchList: HTMLElement = document.getElementById("matches")!;
+            let matchP: HTMLElement = document.createElement("p");
+            matchP.innerHTML = matches[i];
+
+            matchList.appendChild(matchP);
+
+
+
+
+        }
     }
 
 
 
 
-   
+
+
 
 
 

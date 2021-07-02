@@ -104,10 +104,16 @@ window.addEventListener("load", function () {
         };
         let query = new URLSearchParams(searchOb);
         let response = await fetch(url + "/search?" + query.toString());
-        let responseStr = await response.json();
-        let responseJSON = JSON.parse(await responseStr);
-        console.log(responseJSON + "-----");
+        let matches = await response.json();
+        let matchP = document.createElement("li");
+        console.log("matches", matches);
         //return responseJSON;
+        for (let i = 0; i < matches.length; i++) {
+            let matchList = document.getElementById("matches");
+            let matchP = document.createElement("p");
+            matchP.innerHTML = matches[i];
+            matchList.appendChild(matchP);
+        }
     }
     /* form!.onsubmit = () => {
          let formData: FormData = new FormData(form);
