@@ -2,7 +2,7 @@
     "name": "Sound-Bound",
     "version": "1.0.0",
     "description": "Sound-Bound",
-    "main": "Final/server.js",
+    "main": "Final/script.js",
     "scripts": {
     "start": "node server.js"
     },
