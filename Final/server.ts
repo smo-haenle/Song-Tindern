@@ -40,7 +40,7 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
 
     if (_request.url) {
         // /save --> store Picture wird ausgeführt da es sich um den save query handelt
-        
+
         if (_request.url.startsWith("/save")) {
 
             // save url query params
@@ -57,13 +57,13 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
                 vid4: string;
                 vid5: string;
             }
-        
+
             interface infos {
                 name: string;
                 spiritanimals: string;
                 favband: string;
                 songs: songs;
-        
+
             }
             let myJSON: any = JSON.parse(myInfo);
             let myOb: any = JSON.parse(myJSON);
@@ -73,20 +73,45 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
             collection.update({ name: userName }, myOb, { upsert: true });
 
             // /load --> store Picture wird ausgeführt da es sich um den load query handelt
-        } else if (_request.url.startsWith("/load")) {
+        } else if (_request.url.startsWith("/search")) {
 
             // load picture from url name
-            let url: Url.UrlWithParsedQuery = Url.parse(_request.url, true);
-            let picture: any = await loadPicture(url.query.name);
+            let cursor: any = await loadPicture();
+            let myData: any [] = [];
 
-            _response.write(JSON.stringify(picture));
+
+            await cursor.forEach(function (doc: any) {
+
+                console.log(doc);
+                myData.push(doc);
+            });
+            let matches: string[] = [];
+
+            let myRef = await myData[myData.length - 1];
+            for (let i = 0; i < myData.length - 1; i++) {
+                let counter: number = 0;
+                for (let key in await myData[i].songs) {
+                    if (await myData[i].songs[key] == myRef.songs[key]) {
+                        counter++;
+                    }
+                }
+                if (counter > 3) {
+                    matches.push(await myData[i].name);
+                }
+            }
+
+            console.log(matches);
+            // console.log("DATA #####################", picture);
+            _response.write(JSON.stringify(matches));
 
         }
 
     }
 
     _response.end();
+
+    async function loadPicture(): Promise<any> {
+        return await collection.find();
+    }
 }
-
-
 

@@ -3,7 +3,7 @@ window.addEventListener("load", function (): void {
 
     //let form: HTMLFormElement = document.querySelector("#myform");
     let index: number = 1;
-    let url: string = "https://sound-bound.herokuapp.com/";
+    let url: string = "http://localhost:5002";
     let test: any = document.querySelector("#fname");
     interface songs {
         vid1: string;
@@ -113,7 +113,7 @@ window.addEventListener("load", function (): void {
         else {
             console.log("stooooop");
             sendToServer();
-            let match: Object = getDataAndCompare();
+            getDataAndCompare();
             matches();
         }
     }
@@ -127,22 +127,20 @@ window.addEventListener("load", function (): void {
         let response: Response = await fetch(url + "/save?" + query.toString());
         let responseJSON: any = await response.json();
         console.log(await responseJSON);
-        //json string wird zu einem query string umgewandelt
-        //alert("Saved");
     }
 
 
-    async function getDataAndCompare(): Promise<Object> {
+    async function getDataAndCompare(): Promise<void> {
         let searchOb: any = {
             search: "search"
         };
         let query: URLSearchParams = new URLSearchParams(<any>searchOb);
-        let response: Response = await fetch(url + "/save?" + query.toString());
+        let response: Response = await fetch(url + "/search?" + query.toString());
         let responseStr: any = await response.json();
         let responseJSON: Object = JSON.parse(await responseStr);
-        console.log(responseJSON);
+        console.log(responseJSON + "-----");
 
-        return responseJSON;
+        //return responseJSON;
     }
 
 

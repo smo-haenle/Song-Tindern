@@ -3,7 +3,7 @@ window.addEventListener("load", function () {
     console.log("lockedandloaded");
     //let form: HTMLFormElement = document.querySelector("#myform");
     let index = 1;
-    let url = "https://sound-bound.herokuapp.com/";
+    let url = "http://localhost:5002";
     let test = document.querySelector("#fname");
     let info = {
         name: "",
@@ -84,7 +84,7 @@ window.addEventListener("load", function () {
         else {
             console.log("stooooop");
             sendToServer();
-            let match = getDataAndCompare();
+            getDataAndCompare();
             matches();
         }
     }
@@ -97,19 +97,17 @@ window.addEventListener("load", function () {
         let response = await fetch(url + "/save?" + query.toString());
         let responseJSON = await response.json();
         console.log(await responseJSON);
-        //json string wird zu einem query string umgewandelt
-        //alert("Saved");
     }
     async function getDataAndCompare() {
         let searchOb = {
             search: "search"
         };
         let query = new URLSearchParams(searchOb);
-        let response = await fetch(url + "/save?" + query.toString());
+        let response = await fetch(url + "/search?" + query.toString());
         let responseStr = await response.json();
         let responseJSON = JSON.parse(await responseStr);
-        console.log(responseJSON);
-        return responseJSON;
+        console.log(responseJSON + "-----");
+        //return responseJSON;
     }
     /* form!.onsubmit = () => {
          let formData: FormData = new FormData(form);

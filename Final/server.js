@@ -43,13 +43,35 @@ async function handleRequest(_request, _response) {
             collection.update({ name: userName }, myOb, { upsert: true });
             // /load --> store Picture wird ausgeführt da es sich um den load query handelt
         }
-        else if (_request.url.startsWith("/load")) {
+        else if (_request.url.startsWith("/search")) {
             // load picture from url name
-            let url = Url.parse(_request.url, true);
-            let picture = await loadPicture(url.query.name);
-            _response.write(JSON.stringify(picture));
+            let cursor = await loadPicture();
+            let myData = [];
+            await cursor.forEach(function (doc) {
+                console.log(doc);
+                myData.push(doc);
+            });
+            let matches = [];
+            let myRef = await myData[myData.length - 1];
+            for (let i = 0; i < myData.length - 1; i++) {
+                let counter = 0;
+                for (let key in await myData[i].songs) {
+                    if (await myData[i].songs[key] == myRef.songs[key]) {
+                        counter++;
+                    }
+                }
+                if (counter > 3) {
+                    matches.push(await myData[i].name);
+                }
+            }
+            console.log(matches);
+            // console.log("DATA #####################", picture);
+            _response.write(JSON.stringify(matches));
         }
     }
     _response.end();
+    async function loadPicture() {
+        return await collection.find();
+    }
 }
 //# sourceMappingURL=server.js.map
