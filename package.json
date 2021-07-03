@@ -4,16 +4,16 @@
     "description": "Sound-Bound",
     "main": "Final/script.js",
     "scripts": {
-    "start": "node Final/server.js"
+        "start": "node Final/server.js"
     },
     "repository": {
-    "type": "git",
-    "url": "git+https://github.com/smo-haenle/Sound-Bound/Final"
+        "type": "git",
+        "url": "git+https://github.com/smo-haenle/Sound-Bound/Final"
     },
     "author": "GR",
     "license": "ISC",
     "bugs": {
-    "url": "https://github.com/smo-haenle/Sound-Bound/issues"
+        "url": "https://github.com/smo-haenle/Sound-Bound/issues"
     },
     "homepage": "https://github.com/smo-haenle/Sound-Bound/blob/master/Final/Index.html"
-    }
+}
