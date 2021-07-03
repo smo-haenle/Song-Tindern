@@ -1,6 +1,5 @@
 import * as Http from "http";
 import * as Mongo from "mongodb";
-import { memoryUsage } from "process";
 import * as Url from "url";
 
 
@@ -39,7 +38,6 @@ async function handleRequest(_request: Http.IncomingMessage, _response: Http.Ser
     _response.setHeader("Access-Control-Allow-Origin", "*");
 
     if (_request.url) {
-        // /save --> store Picture wird ausgeführt da es sich um den save query handelt
 
         if (_request.url.startsWith("/save")) {
 

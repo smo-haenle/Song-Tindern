@@ -28,7 +28,6 @@ async function handleRequest(_request, _response) {
     _response.setHeader("content-type", "text/html; charset=utf-8");
     _response.setHeader("Access-Control-Allow-Origin", "*");
     if (_request.url) {
-        // /save --> store Picture wird ausgeführt da es sich um den save query handelt
         if (_request.url.startsWith("/save")) {
             let url = Url.parse(_request.url, true);
             _response.write(JSON.stringify(url.query.info));

@@ -39,7 +39,7 @@ window.addEventListener("load", function (): void {
     document.querySelector("#like")!.addEventListener("click", counter);
     document.querySelector("#nolike")!.addEventListener("click", counter);
 
-    //SCREENS
+
     function letsgo(): void {
         console.log("letsgo");
         document.getElementById("start")!.style.display = "none";
@@ -59,7 +59,6 @@ window.addEventListener("load", function (): void {
             document.getElementById("matches")!.style.display = "none";
             changevid();
             submitData();
-            console.log("submitandstart");
         }
     }
 
@@ -81,7 +80,6 @@ window.addEventListener("load", function (): void {
         document.getElementById("formsite")!.style.display = "none";
         document.getElementById("swipesite")!.style.display = "none";
         document.getElementById("matches")!.style.display = "block";
-
     }
 
 
@@ -100,18 +98,17 @@ window.addEventListener("load", function (): void {
         if (_e.target.id == "like") {
             console.log(vid);
             info.songs["vid" + index] = "nice";
-        } else if (_e.target.id == "nolike") {
+        } 
+        else if (_e.target.id == "nolike") {
             console.log(vid);
             info.songs["vid" + index] = "whack";
         }
         index += 1;
         console.log(index);
         if (index <= 5) {
-            console.log("index <= 5");
             changevid();
         }
         else {
-            console.log("stooooop");
             sendToServer();
             getDataAndCompare();
             matches();
@@ -137,7 +134,6 @@ window.addEventListener("load", function (): void {
         let query: URLSearchParams = new URLSearchParams(<any>searchOb);
         let response: Response = await fetch(url + "/search?" + query.toString());
         let matches: string[] = await response.json();
-        let matchP: HTMLElement = document.createElement("li");
         console.log("matches", matches);
         //return responseJSON;
         
@@ -148,49 +144,9 @@ window.addEventListener("load", function (): void {
             matchP.innerHTML = matches[i];
 
             matchList.appendChild(matchP);
-
-
-
-
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-    /* form!.onsubmit = () => {
-         let formData: FormData = new FormData(form);
- 
-         const text: string = formData.get("textInput") as string;
-         console.log(text);
-         return false; 
- };
- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
 
 
-//Submitbutton funktioniert nicht als normaler Button
-//video wird nicht abgespielt
+

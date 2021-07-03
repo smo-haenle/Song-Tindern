@@ -21,7 +21,6 @@ window.addEventListener("load", function () {
     document.querySelector("#click").addEventListener("click", submitandstart);
     document.querySelector("#like").addEventListener("click", counter);
     document.querySelector("#nolike").addEventListener("click", counter);
-    //SCREENS
     function letsgo() {
         console.log("letsgo");
         document.getElementById("start").style.display = "none";
@@ -40,7 +39,6 @@ window.addEventListener("load", function () {
             document.getElementById("matches").style.display = "none";
             changevid();
             submitData();
-            console.log("submitandstart");
         }
     }
     function submitData() {
@@ -78,11 +76,9 @@ window.addEventListener("load", function () {
         index += 1;
         console.log(index);
         if (index <= 5) {
-            console.log("index <= 5");
             changevid();
         }
         else {
-            console.log("stooooop");
             sendToServer();
             getDataAndCompare();
             matches();
@@ -105,7 +101,6 @@ window.addEventListener("load", function () {
         let query = new URLSearchParams(searchOb);
         let response = await fetch(url + "/search?" + query.toString());
         let matches = await response.json();
-        let matchP = document.createElement("li");
         console.log("matches", matches);
         //return responseJSON;
         for (let i = 0; i < matches.length; i++) {
@@ -115,15 +110,5 @@ window.addEventListener("load", function () {
             matchList.appendChild(matchP);
         }
     }
-    /* form!.onsubmit = () => {
-         let formData: FormData = new FormData(form);
- 
-         const text: string = formData.get("textInput") as string;
-         console.log(text);
-         return false;
- };
- */
 });
-//Submitbutton funktioniert nicht als normaler Button
-//video wird nicht abgespielt
 //# sourceMappingURL=script.js.map
