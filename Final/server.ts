@@ -10,7 +10,7 @@ let collection: Mongo.Collection;
 
 let port: number | string | undefined = process.env.PORT;
 if (port == undefined)
-    port = 5002;
+    port = 5005;
 
 let databaseUrl: string = "mongodb+srv://SimonHaenle:eia2@SoundNBound.t2khf.mongodb.net/test";
 

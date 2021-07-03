@@ -7,7 +7,7 @@ const Url = require("url");
 let collection;
 let port = process.env.PORT;
 if (port == undefined)
-    port = 5002;
+    port = 5005;
 let databaseUrl = "mongodb+srv://SimonHaenle:eia2@SoundNBound.t2khf.mongodb.net/test";
 startServer(port);
 connectToDatabase(databaseUrl);
