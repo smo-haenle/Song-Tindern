@@ -3,7 +3,7 @@ window.addEventListener("load", function (): void {
 
     //let form: HTMLFormElement = document.querySelector("#myform");
     let index: number = 1;
-    let url: string = "https://sound-bound.herokuapp.com/";
+    let url: string = "http://localhost:5005";
     let test: any = document.querySelector("#fname");
     interface songs {
         vid1: string;
