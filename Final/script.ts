@@ -109,9 +109,11 @@ window.addEventListener("load", function (): void {
             changevid();
         }
         else {
+            document.getElementById("vidsrc")!.src = "";
             sendToServer();
             getDataAndCompare();
             matches();
+
         }
     }
 

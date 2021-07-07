@@ -79,6 +79,7 @@ window.addEventListener("load", function () {
             changevid();
         }
         else {
+            document.getElementById("vidsrc").src = "";
             sendToServer();
             getDataAndCompare();
             matches();
